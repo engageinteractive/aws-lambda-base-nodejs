@@ -9,4 +9,17 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-docker-compose run --rm lambda $@
+COLOUR_GREEN="\x1b[32;01m"
+COLOUR_RED="\x1b[31;01m"
+COLOUR_RESET="\x1b[39;49;00m"
+
+# If no arguments are passed; run dev build
+if [[ $# -eq 0 ]] ; then
+    ./scripts/console index.handler
+    exit 0
+fi
+
+echo -e $COLOUR_GREEN"--> Starting Local AWS Lambda"$COLOUR_RESET
+echo -e "Using:"$COLOUR_GREEN" ./src/$@\n"$COLOUR_RESET
+
+docker-compose run --rm lambda src/$@
