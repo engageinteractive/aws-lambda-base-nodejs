@@ -1,0 +1,7 @@
+version: '3'
+services:
+
+  lambda:
+    image: lambci/lambda:nodejs10.x
+    volumes:
+      - ../:/var/www:delegated

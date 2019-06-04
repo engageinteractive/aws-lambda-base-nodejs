@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# Purpose:
+#
+# Runs applications tests in the running app container.
+
+set -e
+[ -z "${DEBUG}" ] || set -x
+
+COLOUR_GREEN="\x1b[32;01m"
+COLOUR_RESET="\x1b[39;49;00m"
+
+cd "$(dirname "$0")/.."
+
+echo "No tests defined"
