@@ -5,3 +5,9 @@ services:
     image: lambci/lambda:nodejs10.x
     volumes:
       - ../:/var/task:delegated
+
+  build:
+    image: node:10
+    working_dir: /app
+    volumes:
+      - ../:/app:delegated
