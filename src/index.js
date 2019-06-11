@@ -1,5 +1,7 @@
 'use strict';
 
-exports.handler = (event, context, callback) => {
-    callback(null, "Example Lambda function")
+exports.handler = async (event) => {
+    console.log(event);
+    
+    return 'Done';
 };
